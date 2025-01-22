@@ -1,0 +1,130 @@
+openapi: 3.0.0
+info:
+  title: DummyJSON Products API
+  description: API de productos de DummyJSON para pruebas y prototipos de aplicaciones de comercio electrónico.
+  version: 1.0.0
+servers:
+  - url: https://dummyjson.com
+paths:
+  /products:
+    get:
+      summary: Obtiene todos los productos
+      description: Recupera una lista de productos con detalles como nombres, precios, descripciones, imágenes y categorías.
+      responses:
+        '200':
+          description: Lista de productos obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+  /products/{id}:
+    get:
+      summary: Obtiene un producto por ID
+      description: Recupera los detalles de un producto específico utilizando su ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del producto
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalles del producto obtenidos exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Producto no encontrado
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: "Essence Mascara Lash Princess"
+        description:
+          type: string
+          example: "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects."
+        category:
+          type: string
+          example: "beauty"
+        price:
+          type: number
+          format: float
+          example: 9.99
+        discountPercentage:
+          type: number
+          format: float
+          example: 7.17
+        rating:
+          type: number
+          format: float
+          example: 4.94
+        stock:
+          type: integer
+          example: 5
+        tags:
+          type: array
+          items:
+            type: string
+          example: ["beauty", "mascara"]
+        brand:
+          type: string
+          example: "Essence"
+        sku:
+          type: string
+          example: "RCH45Q1A"
+        weight:
+          type: number
+          format: float
+          example: 2
+        dimensions:
+          type: object
+          properties:
+            width:
+              type: number
+              format: float
+              example: 23.17
+            height:
+              type: number
+              format: float
+              example: 14.43
+            depth:
+              type: number
+              format: float
+              example: 28.01
+        warrantyInformation:
+          type: string
+          example: "1 mes de garantía"
+        shippingInformation:
+          type: string
+          example: "Envío en 1 mes"
+        availabilityStatus:
+          type: string
+          example: "Stock bajo"
+        reviews:
+          type: array
+          items:
+            type: object
+            properties:
+              rating:
+                type: integer
+                example: 2
+              comment:
+                type: string
+                example: "Muy descontento con mi compra."
+              date:
+                type: string
+                format: date-time
+                example: "2024-05-23T08:56:21"
