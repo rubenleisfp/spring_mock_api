@@ -51,7 +51,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-
+        <!--Recarga en caliente-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
