@@ -4,7 +4,7 @@ import com.fp.mockapi.carts.model.Cart;
 import com.fp.mockapi.carts.model.CartPage;
 import com.fp.mockapi.carts.model.Product;
 import com.fp.mockapi.carts.repository.CartRepository;
-import com.fp.mockapi.product.service.ProductService;
+import com.fp.mockapi.products.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

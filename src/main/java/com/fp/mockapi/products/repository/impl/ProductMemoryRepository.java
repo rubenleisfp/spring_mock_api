@@ -1,7 +1,8 @@
-package com.fp.mockapi.product.repository;
+package com.fp.mockapi.products.repository.impl;
 
-import com.fp.mockapi.product.model.Product;
-import com.fp.mockapi.product.model.ProductPage;
+import com.fp.mockapi.products.model.Product;
+import com.fp.mockapi.products.model.ProductPage;
+import com.fp.mockapi.products.repository.ProductRepository;
 import com.fp.mockapi.utils.exceptions.JsonUtils;
 import org.springframework.stereotype.Repository;
 

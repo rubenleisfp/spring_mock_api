@@ -1,8 +1,8 @@
-package com.fp.mockapi.carts.repository;
+package com.fp.mockapi.carts.repository.impl;
 
 import com.fp.mockapi.carts.model.Cart;
 import com.fp.mockapi.carts.model.CartPage;
-import com.fp.mockapi.product.model.ProductPage;
+import com.fp.mockapi.carts.repository.CartRepository;
 import com.fp.mockapi.utils.exceptions.JsonUtils;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class CartMemoryRepository implements CartRepository{
+public class CartMemoryRepository implements CartRepository {
 
     private final CartPage cartPage;
 

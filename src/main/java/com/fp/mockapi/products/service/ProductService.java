@@ -1,8 +1,8 @@
-package com.fp.mockapi.product.service;
+package com.fp.mockapi.products.service;
 
-import com.fp.mockapi.product.model.Product;
-import com.fp.mockapi.product.model.ProductPage;
-import com.fp.mockapi.product.repository.ProductRepository;
+import com.fp.mockapi.products.model.Product;
+import com.fp.mockapi.products.model.ProductPage;
+import com.fp.mockapi.products.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

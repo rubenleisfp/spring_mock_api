@@ -1,4 +1,4 @@
-package com.fp.mockapi.product.model;
+package com.fp.mockapi.products.model;
 
 import java.util.Objects;
 
