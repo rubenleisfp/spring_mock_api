@@ -37,7 +37,7 @@ public class CartRestController {
 		return cartService.getAll();
 	}
 
-
+/*
 	@Operation(summary = "Get a cart by its id")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Cart found", content = {
@@ -55,6 +55,8 @@ public class CartRestController {
 			return responseNotFound(cartId);
 		}
 	}
+	*/
+
 
 	@Operation(summary = "Get a cart page by user id")
 	@ApiResponses(value = {

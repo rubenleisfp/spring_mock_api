@@ -5,6 +5,7 @@ import com.fp.mockapi.carts.model.CartPage;
 import com.fp.mockapi.carts.model.Product;
 import com.fp.mockapi.carts.repository.CartRepository;
 import com.fp.mockapi.products.service.ProductService;
+import com.fp.mockapi.utils.exceptions.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +27,23 @@ public class CartService {
     @Autowired
     private ProductService productService;
 
+    private CartPage cartPage;
+
+
+    public CartService(CartRepository cartRepository){
+        this();
+        this.cartRepository = cartRepository;
+    }
+
+    public CartService() {
+        JsonUtils jsonUtils = new JsonUtils();
+        cartPage = jsonUtils.getCartPage();
+    }
+
+
     public CartPage getAll() {
         CartPage productPage = new CartPage();
         return cartRepository.getAll();
-    }
-
-    public Optional<Cart> getById(int id) {
-        return cartRepository.getById(id);
     }
 
     public CartPage getByUserId(int id) {

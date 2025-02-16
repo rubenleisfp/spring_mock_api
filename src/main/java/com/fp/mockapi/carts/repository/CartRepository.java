@@ -9,7 +9,7 @@ public interface CartRepository {
 
     CartPage getAll();
 
-    Optional<Cart> getById(int id);
+    //Optional<Cart> getById(int id);
 
     CartPage getByUserId(int id);
 }

@@ -26,12 +26,13 @@ public class CartMemoryRepository implements CartRepository {
         return cartPage;
     }
 
+    /*
     @Override
     public Optional<Cart> getById(int id) {
         return cartPage.getCarts().stream()
                 .filter(cart -> cart.getId() == id)
                 .findFirst();
-    }
+    }*/
 
     @Override
     public CartPage getByUserId(int id) {

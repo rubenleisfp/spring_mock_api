@@ -55,4 +55,6 @@ public class JsonUtils {
             throw new RuntimeException(e);
         }
     }
+
+    //TODO crear 2 json, uno con las respuesta para getall y otro para getbytag
 }
