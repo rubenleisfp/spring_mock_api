@@ -65,7 +65,7 @@ public class RecipeRestController {
 					@Content(mediaType = "application/json", schema = @Schema(implementation = RecipePage.class))})})
 	@GetMapping(value = "/tag/{tag}")
 	public RecipePage getByTag(@PathVariable("tag") String tag)	{
-		return recipeService.getRecipeByTag(tag);
+		return recipeService.getByTag(tag);
 	}
 	/*
 	@Operation(summary = "Create a cart")

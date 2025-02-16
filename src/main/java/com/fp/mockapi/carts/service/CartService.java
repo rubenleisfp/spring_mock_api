@@ -42,7 +42,6 @@ public class CartService {
 
 
     public CartPage getAll() {
-        CartPage productPage = new CartPage();
         return cartRepository.getAll();
     }
 
@@ -50,6 +49,13 @@ public class CartService {
         return cartRepository.getByUserId(id);
     }
 
+    /**
+     * Respuesta hardcoded para devolver un producto de Carts
+     * Es compleja la devolución de este elemento, ya que el API utiliza
+     * productos que no expone en getAll, sale de productos ocultos
+     *
+     * @return
+     */
     public Cart getAddHarcodedResponse() {
         Cart expectedCart = new Cart();
         expectedCart.setId(51);

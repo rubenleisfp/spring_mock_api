@@ -19,8 +19,15 @@ public class RecipeService {
 	@Autowired
 	private RecipeRepository recipeRepository;
 
+	public RecipeService() {
+
+	}
+
+	public RecipeService(RecipeRepository recipeRepository) {
+		this.recipeRepository = recipeRepository;
+	}
+
 	public RecipePage getAll() {
-		RecipePage productPage = new RecipePage();
 		return recipeRepository.getAll();
 	}
 
@@ -28,7 +35,7 @@ public class RecipeService {
 		return recipeRepository.getById(id);
 	}
 
-	public RecipePage getRecipeByTag(String tag)	{
+	public RecipePage getByTag(String tag)	{
 		return recipeRepository.getRecipeByTag(tag);
 	}
 }

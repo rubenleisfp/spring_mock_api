@@ -14,6 +14,7 @@ public class JsonUtils {
     private static final String PRODUCT_JSON_FILE_PATH = "src/main/resources/json/product.json";
     private static final String CART_JSON_FILE_PATH = "src/main/resources/json/cart.json";
     private static final String RECIPE_JSON_FILE_PATH = "src/main/resources/json/recipe.json";
+    private static final String RECIPE_HIDDEN_JSON_FILE_PATH = "src/main/resources/json/recipe_hidden.json";
 
     public static void main(String[] args) {
         JsonUtils jsonUtils  = new JsonUtils();
@@ -46,8 +47,16 @@ public class JsonUtils {
     }
 
     public RecipePage getRecipePage() {
+        return getRecipePageFromFile(RECIPE_JSON_FILE_PATH);
+    }
+
+    public RecipePage getRecipePageHiden() {
+        return getRecipePageFromFile(RECIPE_HIDDEN_JSON_FILE_PATH);
+    }
+
+    private RecipePage getRecipePageFromFile(String filePath) {
         Gson gson = new Gson();
-        try (Reader reader = new FileReader(RECIPE_JSON_FILE_PATH)) {
+        try (Reader reader = new FileReader(filePath)) {
             // convert the JSON data to a Java object
             RecipePage recipePage = gson.fromJson(reader, RecipePage.class);
             return recipePage;
@@ -56,5 +65,4 @@ public class JsonUtils {
         }
     }
 
-    //TODO crear 2 json, uno con las respuesta para getall y otro para getbytag
 }

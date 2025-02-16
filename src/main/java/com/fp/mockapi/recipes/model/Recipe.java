@@ -1,6 +1,7 @@
 package com.fp.mockapi.recipes.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Recipe {
     private int id;
@@ -149,5 +150,40 @@ public class Recipe {
 
     public void setMealType(List<String> mealType) {
         this.mealType = mealType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Recipe recipe = (Recipe) o;
+        return id == recipe.id && prepTimeMinutes == recipe.prepTimeMinutes && cookTimeMinutes == recipe.cookTimeMinutes && servings == recipe.servings && caloriesPerServing == recipe.caloriesPerServing && userId == recipe.userId && Double.compare(rating, recipe.rating) == 0 && reviewCount == recipe.reviewCount && Objects.equals(name, recipe.name) && Objects.equals(ingredients, recipe.ingredients) && Objects.equals(instructions, recipe.instructions) && Objects.equals(difficulty, recipe.difficulty) && Objects.equals(cuisine, recipe.cuisine) && Objects.equals(tags, recipe.tags) && Objects.equals(image, recipe.image) && Objects.equals(mealType, recipe.mealType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, ingredients, instructions, prepTimeMinutes, cookTimeMinutes, servings, difficulty, cuisine, caloriesPerServing, tags, userId, image, rating, reviewCount, mealType);
+    }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", ingredients=" + ingredients +
+                ", instructions=" + instructions +
+                ", prepTimeMinutes=" + prepTimeMinutes +
+                ", cookTimeMinutes=" + cookTimeMinutes +
+                ", servings=" + servings +
+                ", difficulty='" + difficulty + '\'' +
+                ", cuisine='" + cuisine + '\'' +
+                ", caloriesPerServing=" + caloriesPerServing +
+                ", tags=" + tags +
+                ", userId=" + userId +
+                ", image='" + image + '\'' +
+                ", rating=" + rating +
+                ", reviewCount=" + reviewCount +
+                ", mealType=" + mealType +
+                '}';
     }
 }

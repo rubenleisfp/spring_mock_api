@@ -20,7 +20,6 @@ import static org.junit.Assert.assertNotNull;
 
 public class CartServiceTest {
 
-    @Autowired
     private CartRepository cartRepository;
 
     private CartService cartService;

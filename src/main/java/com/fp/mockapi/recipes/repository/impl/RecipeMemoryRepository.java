@@ -15,10 +15,12 @@ import java.util.stream.Collectors;
 public class RecipeMemoryRepository implements RecipeRepository {
 
     private final RecipePage recipePage;
+    private final RecipePage recipePageHidden;
 
     public RecipeMemoryRepository() {
         JsonUtils jsonUtils = new JsonUtils();
         recipePage = jsonUtils.getRecipePage();
+        recipePageHidden = jsonUtils.getRecipePageHiden();
     }
 
     @Override
@@ -35,7 +37,7 @@ public class RecipeMemoryRepository implements RecipeRepository {
 
     public RecipePage getRecipeByTag(String tag) {
         RecipePage recipePage  = new RecipePage();
-        List<Recipe> recipeList = this.recipePage.getRecipes().stream()
+        List<Recipe> recipeList = this.recipePageHidden.getRecipes().stream()
                 .filter(recipe -> recipe.getTags().contains(tag))
                 .collect(Collectors.toList());
         recipePage.setRecipes(recipeList);
