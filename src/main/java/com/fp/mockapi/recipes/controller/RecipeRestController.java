@@ -1,9 +1,5 @@
 package com.fp.mockapi.recipes.controller;
 
-import com.fp.mockapi.carts.dto.CartRequest;
-import com.fp.mockapi.carts.model.Cart;
-import com.fp.mockapi.carts.model.CartPage;
-import com.fp.mockapi.carts.service.CartService;
 import com.fp.mockapi.recipes.model.Recipe;
 import com.fp.mockapi.recipes.model.RecipePage;
 import com.fp.mockapi.recipes.service.RecipeService;
@@ -82,7 +78,7 @@ public class RecipeRestController {
 	@Operation(summary = "Create a recipe")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "201", description = "Recipe created", content = {
-					@Content(mediaType = "application/json", schema = @Schema(implementation = Cart.class))}),
+					@Content(mediaType = "application/json", schema = @Schema(implementation = Recipe.class))}),
 			@ApiResponse(responseCode = "400", description = "Data not valid", content = {
 					@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})})
 	@PostMapping("/add")
