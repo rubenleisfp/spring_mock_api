@@ -11,7 +11,7 @@ import java.io.Reader;
 import java.util.List;
 
 public class JsonUtils {
-    
+
     private static final String RECIPE_JSON_FILE_PATH = "json/recipe.json";
     private static final String RECIPE_HIDDEN_JSON_FILE_PATH = "json/recipe_hidden.json";
     private static final String RECIPE_TAGS_FILE_PATH = "json/recipe_tags.json";
