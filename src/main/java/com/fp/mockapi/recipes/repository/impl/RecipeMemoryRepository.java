@@ -16,11 +16,13 @@ public class RecipeMemoryRepository implements RecipeRepository {
 
     private final RecipePage recipePage;
     private final RecipePage recipePageHidden;
+    private final List<String> recipeTags;
 
     public RecipeMemoryRepository() {
         JsonUtils jsonUtils = new JsonUtils();
         recipePage = jsonUtils.getRecipePage();
         recipePageHidden = jsonUtils.getRecipePageHiden();
+        recipeTags = jsonUtils.getRecipeTagsFromFile();
     }
 
     @Override
@@ -35,7 +37,8 @@ public class RecipeMemoryRepository implements RecipeRepository {
                 .findFirst();
     }
 
-    public RecipePage getRecipeByTag(String tag) {
+    @Override
+    public RecipePage getByTag(String tag) {
         RecipePage recipePage  = new RecipePage();
         List<Recipe> recipeList = this.recipePageHidden.getRecipes().stream()
                 .filter(recipe -> recipe.getTags().contains(tag))
@@ -45,5 +48,16 @@ public class RecipeMemoryRepository implements RecipeRepository {
         recipePage.setTotal(recipeList.size());
         recipePage.setLimit(recipeList.size());
         return recipePage;
+    }
+
+    @Override
+    public List<String> getTags() {
+        return recipeTags;
+    }
+
+    @Override
+    public Recipe create(Recipe recipe) {
+        recipe.setId(51);
+        return recipe;
     }
 }

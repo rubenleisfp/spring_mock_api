@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
 
 public class JsonUtils {
 
@@ -15,6 +16,8 @@ public class JsonUtils {
     private static final String CART_JSON_FILE_PATH = "src/main/resources/json/cart.json";
     private static final String RECIPE_JSON_FILE_PATH = "src/main/resources/json/recipe.json";
     private static final String RECIPE_HIDDEN_JSON_FILE_PATH = "src/main/resources/json/recipe_hidden.json";
+    private static final String RECIPE_TAGS_FILE_PATH = "src/main/resources/json/recipe_tags.json";
+
 
     public static void main(String[] args) {
         JsonUtils jsonUtils  = new JsonUtils();
@@ -60,6 +63,17 @@ public class JsonUtils {
             // convert the JSON data to a Java object
             RecipePage recipePage = gson.fromJson(reader, RecipePage.class);
             return recipePage;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<String> getRecipeTagsFromFile() {
+        Gson gson = new Gson();
+        try (Reader reader = new FileReader(RECIPE_TAGS_FILE_PATH)) {
+            // convert the JSON data to a Java object
+            List<String> recipeTags = gson.fromJson(reader, List.class);
+            return recipeTags;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

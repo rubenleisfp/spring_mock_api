@@ -9,6 +9,7 @@ import com.fp.mockapi.recipes.model.RecipePage;
 import com.fp.mockapi.recipes.service.RecipeService;
 import com.fp.mockapi.utils.exceptions.ErrorResponse;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -19,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -67,19 +69,28 @@ public class RecipeRestController {
 	public RecipePage getByTag(@PathVariable("tag") String tag)	{
 		return recipeService.getByTag(tag);
 	}
-	/*
-	@Operation(summary = "Create a cart")
+
+	@Operation(summary = "Get recipes tag")
 	@ApiResponses(value = {
-			@ApiResponse(responseCode = "201", description = "Cart created", content = {
+			@ApiResponse(responseCode = "200", description = "Tags found", content = {
+					@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = String.class)))})})
+	@GetMapping(value = "/tags")
+	public List<String> getTags()	{
+		return recipeService.getTags();
+	}
+
+	@Operation(summary = "Create a recipe")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "201", description = "Recipe created", content = {
 					@Content(mediaType = "application/json", schema = @Schema(implementation = Cart.class))}),
 			@ApiResponse(responseCode = "400", description = "Data not valid", content = {
 					@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})})
 	@PostMapping("/add")
-	public ResponseEntity<Cart> createCart(@Valid @RequestBody CartRequest cartRequest) {
-		Cart cart = cartService.getAddHarcodedResponse();
-		return new ResponseEntity<>(cart, HttpStatus.CREATED);
+	public ResponseEntity<Recipe> create(@Valid @RequestBody Recipe recipe) {
+		Recipe recipeResponse = recipeService.createRecipe(recipe);
+		return new ResponseEntity<>(recipeResponse, HttpStatus.CREATED);
 	}
-
+/*
 
 	@Operation(summary = "Create a book")
 	@ApiResponses(value = {

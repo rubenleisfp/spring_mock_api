@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -36,6 +37,14 @@ public class RecipeService {
 	}
 
 	public RecipePage getByTag(String tag)	{
-		return recipeRepository.getRecipeByTag(tag);
+		return recipeRepository.getByTag(tag);
+	}
+
+	public List<String> getTags() {
+		return recipeRepository.getTags();
+	}
+
+	public Recipe createRecipe(Recipe recipe) {
+		return  recipeRepository.create(recipe);
 	}
 }
