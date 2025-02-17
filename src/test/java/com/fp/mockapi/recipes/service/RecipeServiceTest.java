@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import com.fp.mockapi.recipes.model.Recipe;
@@ -57,6 +58,22 @@ public class RecipeServiceTest {
 		Optional<Recipe> recipe = recipeService.getById(1);
 		assertNotNull(recipe.get());
 		assertEquals(getExpectedRecipe(), recipe.get());
+	}
+
+	@Test
+	public void testCreate() {
+		Recipe recipeResponse =recipeService.createRecipe(getExpectedRecipe());
+		assertNotNull(recipeResponse);
+		Recipe expectedRecipe = getExpectedRecipe();
+		expectedRecipe.setId(51);
+		assertEquals(expectedRecipe, recipeResponse);
+	}
+
+	@Test
+	public void testGetTags() {
+		List<String> tags = recipeService.getTags();
+		assertNotNull(tags);
+		assertEquals(87, tags.size());
 	}
 
 	private Recipe getExpectedRecipe() {
