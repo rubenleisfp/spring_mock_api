@@ -21,7 +21,7 @@ public class RecipeMemoryRepository implements RecipeRepository {
     public RecipeMemoryRepository() {
         JsonUtils jsonUtils = new JsonUtils();
         recipePage = jsonUtils.getRecipePage();
-        recipePageHidden = jsonUtils.getRecipePageHiden();
+        recipePageHidden = jsonUtils.getRecipePageHidden();
         recipeTags = jsonUtils.getRecipeTagsFromFile();
     }
 

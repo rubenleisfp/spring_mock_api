@@ -19,3 +19,9 @@ A continuación se presentan algunos ejemplos de uso de la API:
 ### Obtener una lista de productos
 
 Para obtener una lista de productos, se debe realizar una petición GET a la siguiente URL:
+
+### Ejecutar standalone
+
+mvn package
+
+spring_mock_api-0.0.1-SNAPSHOT.jar
