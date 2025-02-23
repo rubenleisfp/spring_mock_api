@@ -1,8 +1,8 @@
 package com.fp.mockapi.utils.exceptions;
 
-import com.fp.mockapi.carts.model.CartPage;
+
 import com.fp.mockapi.products.model.ProductPage;
-import com.fp.mockapi.recipes.model.RecipePage;
+
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -27,18 +27,6 @@ public class JsonUtils {
 
     public ProductPage getProductPage() {
         return getObjectFromFile(PRODUCT_JSON_FILE_PATH, ProductPage.class);
-    }
-
-    public CartPage getCartPage() {
-        return getObjectFromFile(CART_JSON_FILE_PATH, CartPage.class);
-    }
-
-    public RecipePage getRecipePage() {
-        return getObjectFromFile(RECIPE_JSON_FILE_PATH, RecipePage.class);
-    }
-
-    public RecipePage getRecipePageHidden() {
-        return getObjectFromFile(RECIPE_HIDDEN_JSON_FILE_PATH, RecipePage.class);
     }
 
     public List<String> getRecipeTagsFromFile() {
