@@ -1,6 +1,7 @@
 package com.fp.mockapi.utils.exceptions;
 
 import com.fp.mockapi.carts.model.CartPage;
+import com.fp.mockapi.comments.model.CommentPage;
 import com.fp.mockapi.products.model.ProductPage;
 import com.fp.mockapi.recipes.model.RecipePage;
 import com.google.gson.Gson;
@@ -18,6 +19,7 @@ public class JsonUtils {
     private static final String RECIPE_JSON_FILE_PATH = "json/recipe.json";
     private static final String RECIPE_HIDDEN_JSON_FILE_PATH = "json/recipe_hidden.json";
     private static final String RECIPE_TAGS_FILE_PATH = "json/recipe_tags.json";
+    private static final String COMMENT_TAGS_FILE_PATH = "json/comment.json";
 
     public static void main(String[] args) {
         JsonUtils jsonUtils = new JsonUtils();
@@ -39,6 +41,10 @@ public class JsonUtils {
 
     public RecipePage getRecipePageHidden() {
         return getObjectFromFile(RECIPE_HIDDEN_JSON_FILE_PATH, RecipePage.class);
+    }
+
+    public CommentPage getCommentPage() {
+        return getObjectFromFile(COMMENT_TAGS_FILE_PATH, CommentPage.class);
     }
 
     public List<String> getRecipeTagsFromFile() {
