@@ -2,6 +2,7 @@ package com.fp.mockapi.utils.exceptions;
 
 import com.fp.mockapi.carts.model.CartPage;
 import com.fp.mockapi.comments.model.CommentPage;
+import com.fp.mockapi.post.model.PostPage;
 import com.fp.mockapi.products.model.ProductPage;
 import com.fp.mockapi.quotes.model.QuotePage;
 import com.fp.mockapi.recipes.model.RecipePage;
@@ -22,6 +23,7 @@ public class JsonUtils {
     private static final String RECIPE_TAGS_FILE_PATH = "json/recipe_tags.json";
     private static final String COMMENT_JSON_FILE_PATH = "json/comment.json";
     private static final String QUOTES_JSON_FILE_PATH = "json/quotes.json";
+    private static final String POST_JSON_FILE_PATH = "json/post.json";
 
     public static void main(String[] args) {
         JsonUtils jsonUtils = new JsonUtils();
@@ -48,7 +50,9 @@ public class JsonUtils {
     public CommentPage getCommentPage() {
         return getObjectFromFile(COMMENT_JSON_FILE_PATH, CommentPage.class);
     }
-
+    public PostPage getPostPage() {
+        return getObjectFromFile(POST_JSON_FILE_PATH, PostPage.class);
+    }
 
     public QuotePage getQuotesPage() {
         return getObjectFromFile(QUOTES_JSON_FILE_PATH, QuotePage.class);
