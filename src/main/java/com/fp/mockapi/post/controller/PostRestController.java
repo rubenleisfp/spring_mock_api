@@ -24,7 +24,7 @@ import java.util.Optional;
  */
 
 @RestController
-@RequestMapping("/api/post")
+@RequestMapping("/api/posts")
 public class PostRestController {
 
 	@Autowired
@@ -37,16 +37,20 @@ public class PostRestController {
 		return postService.getAll();
 	}
 
-	@Operation(summary = "Get all post with pagination")
+	@Operation(summary = "Get all post")
 	@GetMapping()
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Post found", content = {
 					@Content(mediaType = "application/json", schema = @Schema(implementation = PostPage.class))}),
 			@ApiResponse(responseCode = "404", description = "Post not found", content = {
 					@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})})
-	public ResponseEntity<PostPage> findAllWithPagination(@RequestParam(value = "limit", required = true) int limit,
-													 @RequestParam(value = "skip", required = true) int skip) {
-		return ResponseEntity.ok(postService.getAll(limit, skip));
+	public ResponseEntity<PostPage> findAll(@RequestParam(value = "limit", required = false) Integer limit,
+													 @RequestParam(value = "skip", required = false) Integer skip) {
+		if (limit!= null && skip != null) {
+			return ResponseEntity.ok(postService.getAll(limit, skip));
+		} else {
+			return ResponseEntity.ok(postService.getAll());
+		}
 	}
 
 
