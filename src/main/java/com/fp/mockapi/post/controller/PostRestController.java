@@ -31,11 +31,11 @@ public class PostRestController {
 	private PostService postService;
 
 
-	@Operation(summary = "Get all post")
-	@GetMapping("/all")
-	public PostPage findAll() {
-		return postService.getAll();
-	}
+//	@Operation(summary = "Get all post")
+//	@GetMapping("/all")
+//	public PostPage findAll() {
+//		return postService.getAll();
+//	}
 
 	@Operation(summary = "Get all post")
 	@GetMapping()
