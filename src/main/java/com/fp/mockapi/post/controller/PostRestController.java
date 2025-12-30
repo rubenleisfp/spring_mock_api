@@ -37,7 +37,7 @@ public class PostRestController {
 //		return postService.getAll();
 //	}
 
-	@Operation(summary = "Get all post")
+	@Operation(summary = "Get all post. Optional pagination")
 	@GetMapping()
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Post found", content = {
