@@ -31,8 +31,11 @@ public class RecipeRestController {
 	private RecipeService recipeService;
 
 
-	@Operation(summary = "Get all recipes")
+	@Operation(summary = "Get a recipe page")
 	@GetMapping()
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Recipes found", content = {
+					@Content(mediaType = "application/json", schema = @Schema(implementation = RecipePage.class))})})
 	public RecipePage findAll() {
 		return recipeService.getAll();
 	}
