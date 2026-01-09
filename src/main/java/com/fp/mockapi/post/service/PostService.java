@@ -1,7 +1,5 @@
 package com.fp.mockapi.post.service;
 
-import com.fp.mockapi.comments.model.CommentPage;
-import com.fp.mockapi.comments.repository.CommentRepository;
 import com.fp.mockapi.post.model.Post;
 import com.fp.mockapi.post.model.PostPage;
 import com.fp.mockapi.post.repository.PostRepository;

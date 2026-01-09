@@ -1,18 +1,13 @@
 package com.fp.mockapi.utils.exceptions;
 
-import com.fp.mockapi.carts.model.CartPage;
-import com.fp.mockapi.comments.model.CommentPage;
 import com.fp.mockapi.post.model.PostPage;
-import com.fp.mockapi.products.model.ProductPage;
-import com.fp.mockapi.quotes.model.QuotePage;
-import com.fp.mockapi.recipes.model.RecipePage;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.List;
+
 
 public class JsonUtils {
 
@@ -27,40 +22,14 @@ public class JsonUtils {
 
     public static void main(String[] args) {
         JsonUtils jsonUtils = new JsonUtils();
-        ProductPage productPage = jsonUtils.getProductPage();
-        System.out.println(productPage);
+
     }
 
-    public ProductPage getProductPage() {
-        return getObjectFromFile(PRODUCT_JSON_FILE_PATH, ProductPage.class);
-    }
 
-    public CartPage getCartPage() {
-        return getObjectFromFile(CART_JSON_FILE_PATH, CartPage.class);
-    }
-
-    public RecipePage getRecipePage() {
-        return getObjectFromFile(RECIPE_JSON_FILE_PATH, RecipePage.class);
-    }
-
-    public RecipePage getRecipePageHidden() {
-        return getObjectFromFile(RECIPE_HIDDEN_JSON_FILE_PATH, RecipePage.class);
-    }
-
-    public CommentPage getCommentPage() {
-        return getObjectFromFile(COMMENT_JSON_FILE_PATH, CommentPage.class);
-    }
     public PostPage getPostPage() {
         return getObjectFromFile(POST_JSON_FILE_PATH, PostPage.class);
     }
 
-    public QuotePage getQuotesPage() {
-        return getObjectFromFile(QUOTES_JSON_FILE_PATH, QuotePage.class);
-    }
-
-    public List<String> getRecipeTagsFromFile() {
-        return getObjectFromFile(RECIPE_TAGS_FILE_PATH, List.class);
-    }
 
     private <T> T getObjectFromFile(String filePath, Class<T> clazz) {
         Gson gson = new Gson();
