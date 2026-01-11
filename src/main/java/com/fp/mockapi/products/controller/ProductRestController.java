@@ -24,8 +24,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  *
  */
 
-@RestController
-@RequestMapping("/api/products")
+//@RestController
+//@RequestMapping("/api/products")
 public class ProductRestController {
 
 	@Autowired

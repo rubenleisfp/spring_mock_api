@@ -1,3 +1,6 @@
+En esta rama tenemos habilitado solamente el API que queremos consumir. El resto
+estan deshabilitados habiendo comentado para ello las anotaciones del controlador
+
 # Mock API
 
 Este proyecto es una implementación de una API REST que devuelve datos de diferentes recursos (productos, recetas, carritos de compras, etc.) en formato JSON.

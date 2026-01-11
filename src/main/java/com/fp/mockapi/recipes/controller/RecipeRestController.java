@@ -23,8 +23,8 @@ import java.util.Optional;
  *
  */
 
-@RestController
-@RequestMapping("/api/recipes")
+//@RestController
+//@RequestMapping("/api/recipes")
 public class RecipeRestController {
 
 	@Autowired
