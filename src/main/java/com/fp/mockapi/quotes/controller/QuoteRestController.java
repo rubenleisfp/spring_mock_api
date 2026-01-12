@@ -26,8 +26,8 @@ import java.util.Optional;
  *
  */
 
-@RestController
-@RequestMapping("/api/quotes")
+//@RestController
+//@RequestMapping("/api/quotes")
 public class QuoteRestController {
 
 	@Autowired

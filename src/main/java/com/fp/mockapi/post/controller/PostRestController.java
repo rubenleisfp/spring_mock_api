@@ -20,8 +20,8 @@ import java.util.Optional;
  *
  */
 
-@RestController
-@RequestMapping("/api/posts")
+//@RestController
+//@RequestMapping("/api/posts")
 public class PostRestController {
 
 	@Autowired

@@ -23,8 +23,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  *
  */
 
-@RestController
-@RequestMapping("/api/carts")
+//@RestController
+//@RequestMapping("/api/carts")
 public class CartRestController {
 
 	@Autowired
